@@ -28,6 +28,8 @@ class Animal:
         self.name = name
         self.age = age
 
+
+
     def make_sound(self):
         pass
 
@@ -51,7 +53,7 @@ class Mammal(Animal):
 class Reptile(Animal):
     def __init__(self, name, age, crawling_speed):
         super().__init__(name, age)
-        self.jumping_speed = crawling_speed
+        self.crawling_speed = crawling_speed
     def make_sound(self):
         print("клац-клац")
 
@@ -60,3 +62,51 @@ animals = [Bird("Воробей", 3, 10),
            Reptile("Крокодил", 1, 3)]
 for animal in animals:
     animal.make_sound()
+
+class Zoo:
+    def __init__(self):
+        self.animals = []
+        self.zookeepers = []
+        self.veterinarians = []
+
+    def add_animal(self, animal):
+        self.animals.append(animal)
+
+    def add_zookeeper(self, zookeeper):
+        self.zookeepers.append(zookeeper)
+
+    def add_veterinarian(self, veterinarian):
+        self.veterinarians.append(veterinarian)
+
+
+class ZooKeeper:
+    def feed_animal(self, animal, food):
+        animal.eat(food)
+        print(f"Животное {animal.name} покормлено")
+
+class Veterinarian:
+    def heal_animal(self, animal):
+        print(f"Лечим животное {animal.name}")
+        animal.make_sound()
+
+# Создание объектов животных
+bird = Bird("Воробей", 3, 10)
+mammal = Mammal("Собака", 2, 5)
+reptile = Reptile("Крокодил", 1, 3)
+
+
+# Создание сотрудников зоопарка
+keeper = ZooKeeper()
+veterinarian = Veterinarian()
+
+# Создание зоопарка и добавление в него животных и сотрудников
+zoo = Zoo()
+zoo.add_animal(bird)
+zoo.add_animal(mammal)
+zoo.add_animal(reptile)
+zoo.add_zookeeper(keeper)
+zoo.add_veterinarian(veterinarian)
+
+
+
+
