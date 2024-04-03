@@ -71,6 +71,7 @@ class Zoo:
 
     def add_animal(self, animal):
         self.animals.append(animal)
+        print(f"животное {animal.name} добавлено в зоопарк")
 
     def add_zookeeper(self, zookeeper):
         self.zookeepers.append(zookeeper)
@@ -81,13 +82,13 @@ class Zoo:
 
 class ZooKeeper:
     def feed_animal(self, animal, food):
-        animal.eat(food)
+
         print(f"Животное {animal.name} покормлено")
 
 class Veterinarian:
     def heal_animal(self, animal):
         print(f"Лечим животное {animal.name}")
-        animal.make_sound()
+
 
 # Создание объектов животных
 bird = Bird("Воробей", 3, 10)
@@ -101,11 +102,13 @@ veterinarian = Veterinarian()
 
 # Создание зоопарка и добавление в него животных и сотрудников
 zoo = Zoo()
+keeper = ZooKeeper()
+veterinarian = Veterinarian()
 zoo.add_animal(bird)
 zoo.add_animal(mammal)
 zoo.add_animal(reptile)
-zoo.add_zookeeper(keeper)
-zoo.add_veterinarian(veterinarian)
+keeper.feed_animal(bird, "мясо")
+
 
 
 
